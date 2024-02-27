@@ -1,6 +1,6 @@
 # Cloud Init
 
-![CloudInit funktionsweise](https://github.com/lauradubach/Projektmanagement/blob/b54d9074a289cf795378d3fca5205d6e6c9d355d/Cloud%20Init.png)
+![CloudInit funktionsweise](https://github.com/lauradubach/Modul-IaC/blob/a869c8ce114075558f7655bf471369ec33210e4f/Cloud%20Init.png)
 
 ## VM & User/Gruppen via Bash erstellen
 
