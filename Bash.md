@@ -13,9 +13,9 @@ Scripting allows for an automatic commands execution that would otherwise be exe
 
 | Befehl | Funktion |
 | ---- | ---- |
-| echo $SHELL | Mit welchem sprach interpreter man arbeitet |
-| chmod +x FILENAME | File ausführbar machen |
-| file FILENAME | er zeigt was für ein File es ist |
-| ./FILENAME.sh | ausführen |
+| `echo $SHELL` | Mit welchem sprach interpreter man arbeitet |
+| `chmod +x FILENAME` | File ausführbar machen |
+| `file FILENAME` | er zeigt was für ein File es ist |
+| `./FILENAME.sh` | ausführen |
 
 Probably the best analogy to explain a relative vs. absolute file path is to visualise GNU/Linux filesystem as a multiple storey building. The root directory (building’s entrance door) indicated by / provides the entry to the entire filesystem (building), hence giving access to all directories (levels/rooms) and files (people).
