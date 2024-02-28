@@ -30,7 +30,20 @@ Scripting allows for an automatic commands execution that would otherwise be exe
 | `2>` stderr | Error File |
 | `&>` both stdout & stderr | Beide Files |
 | `<` stdin | Input File ZB: cat < test.sh / gibt aus was im test.sh steht |
+| `[]` | um einen test zu machen |
+| `wc -l` | word count, zählt wie viele linien es gibt | 
 
 Beispiel:  echo 'tar -czf /tmp/myhome_directory.tar.gz /home/linuxconfig/' >> backup.sh
 
 Probably the best analogy to explain a relative vs. absolute file path is to visualise GNU/Linux filesystem as a multiple storey building. The root directory (building’s entrance door) indicated by / provides the entry to the entire filesystem (building), hence giving access to all directories (levels/rooms) and files (people).
+
+## Numeric and String
+
+| Description | Numeric Comparison | String Comparison | 
+| ---- | ---- | ---- |
+| less than | -lt | < |
+| greater than | -gt | > |
+|equal | -eq | = |
+| not equal | -ne | != |
+| less or equal | -le | N/A |
+|greater or equal | -ge | N/A |
