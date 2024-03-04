@@ -1,8 +1,7 @@
-# Einführung
+# Bash
 
 Bash -> Born again shell
 
-## Bash
 Bash is a command language interpreter. It is widely available on various operating systems and is a default command interpreter on most GNU/Linux systems. The name is an acronym for the ‘Bourne-Again SHell’.
 
 ## Shell
@@ -11,21 +10,38 @@ Shell is a macro processor which allows for an interactive or non-interactive co
 ## Scripting
 Scripting allows for an automatic commands execution that would otherwise be executed interactively one-by-one.
 
+## Basics
+
 | Befehl | Funktion |
 | ---- | ---- |
 | `echo $SHELL` | Mit welchem sprach interpreter man arbeitet |
 | `echo` | schreiben |
 | `cat` | Inhalt von einem File wird angezeigt |
+| `man` beliebiger Befehl (zb:`$man ls`) | Zeigt das manual vom Befehl an |
+| `>` | estellen oder überschreiben |
+| `>>` | erstellen oder hinzufügen |
+
+## File names and permissions
+| Befehl | Funktion |
+| ---- | ---- |
 | `chmod +x FILENAME` | File ausführbar machen |
 | `file FILENAME` | er zeigt was für ein File es ist |
 | `./FILENAME.sh` | ausführen |
-| `man` beliebiger Befehl (zb:`$man ls`) | Zeigt das manual vom Befehl an |
 | `$ls -al` | Details zum Inhalt mit Berechtigungen |
-| `>` | estellen oder überschreiben |
-| `>>` | erstellen oder hinzufügen |
 | `tar -czf` | (create Zip File) Erstellt ein archiv vom angegebenen Directory Beispiel: echo 'tar -czf /tmp/myhome_directory.tar.gz /home/linuxconfig/' >> backup.sh |
+
+Beispiel:  `echo 'tar -czf /tmp/myhome_directory.tar.gz /home/linuxconfig/' >> backup.sh`
+
+## Variables
+| Befehl | Funktion |
+| ---- | ---- |
 | `$` | Ruft eine Variabel auf | 
 | `{}` | wenn man eine Variabel angiebt aber danach noch mehr schreibt setzt man die Variabel in {} damit der rest nicht als variabel zählt | 
+
+
+## Input, Output and error redirections
+| Befehl | Funktion |
+| ---- | ---- |
 | `>` stdout | Output File |
 | `2>` stderr | Error File |
 | `&>` both stdout & stderr | Beide Files |
@@ -33,7 +49,6 @@ Scripting allows for an automatic commands execution that would otherwise be exe
 | `[]` | um einen test zu machen |
 | `wc -l` | word count, zählt wie viele linien es gibt | 
 
-Beispiel:  echo 'tar -czf /tmp/myhome_directory.tar.gz /home/linuxconfig/' >> backup.sh
 
 Probably the best analogy to explain a relative vs. absolute file path is to visualise GNU/Linux filesystem as a multiple storey building. The root directory (building’s entrance door) indicated by / provides the entry to the entire filesystem (building), hence giving access to all directories (levels/rooms) and files (people).
 
@@ -47,3 +62,46 @@ Probably the best analogy to explain a relative vs. absolute file path is to vis
 | not equal | -ne | != |
 | less or equal | -le | N/A |
 |greater or equal | -ge | N/A |
+
+## Conditional Statements
+
+`If/then/else`
+
+## Positional Parameters
+
+$1, $2 …. $n
+
+Die Verwendung der -z-Bash-Option in Kombination mit einer bedingten if-Anweisung dient dazu zu überprüfen, ob der positionale Parameter $1 einen Wert enthält. 
+-z gibt einfach true zurück, wenn die Länge des Strings, der in unserem Fall die Variable $1 ist, null ist. Ist dies der Fall, setzen wir die Variable $user auf den Namen des aktuellen Benutzers.
+
+## Bash Loops
+
+### For Loop
+#### Die For-Loop durchläuft eine Liste von Elementen und führt für jedes Element einen Befehl aus. Dies wird anhand eines Beispiels demonstriert, das die Anzahl der Zeichen in einer Datei zählt.
+
+for i in 1 2 3; do
+echo $i
+done
+
+### While Loop
+#### Die While-Loop führt einen Befehl aus, solange eine Bedingung wahr ist, wie anhand eines Beispiels gezeigt wird, das Zahlen zählt. Die Until-Schleife ist ähnlich der While-Schleife, führt jedoch solange einen Block Code aus, bis eine Bedingung wahr wird.
+
+while [ $counter -lt 3 ]; do
+let counter+=1
+echo $counter
+done
+
+### Until Loop
+#### Die "until"-Loop in Bash funktioniert gegenteilig zur "while"-Schleife. Sie führt einen Codeblock solange aus, bis eine Bedingung wahr wird. Der Text liefert ein Beispiel, in dem eine Zählvariable verringert wird, bis sie einen bestimmten Schwellenwert erreicht.
+
+until [ $counter -lt 3 ]; do
+let counter-=1
+echo $counter
+done
+
+## Bash-Arithmetik
+
+1. Arithmetische Expansion: Diese Methode umfasst das Einklammern mathematischer Ausdrücke in doppelte Klammern. Beispiele sind Addition, Subtraktion, Multiplikation und Division.
+2. expr-Befehl: Eine weitere Methode ist die Verwendung des expr-Befehls, der arithmetische Operationen ohne Klammern oder Anführungszeichen ermöglicht. Das Multiplikationszeichen muss jedoch zur Vermeidung von Syntaxfehlern maskiert werden.
+3. let-Befehl: Ähnlich wie expr bewertet der let-Befehl mathematische Ausdrücke und speichert das Ergebnis in einer Variable. Er unterstützt auch Inkrement- und Exponentenoperationen.
+4. bc-Befehl: Für Dezimalberechnungen wird der bc-Befehl verwendet. Er ermöglicht komplexere Operationen und die Kontrolle über die Genauigkeit. Beispiele sind Division, Quadratwurzel und das Festlegen der Genauigkeit mit dem scale-Parameter.
