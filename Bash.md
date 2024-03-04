@@ -21,6 +21,8 @@ Scripting allows for an automatic commands execution that would otherwise be exe
 | `>` | estellen oder überschreiben |
 | `>>` | erstellen oder hinzufügen |
 | `basename $0` | nimmt den Pfad weg und gibt nur den namen des Files aus |
+| `$*` | gibt aus was in der variabel steht (eigentlich wie echo) |
+
 
 ## File names and permissions
 | Befehl | Funktion |
@@ -32,6 +34,8 @@ Scripting allows for an automatic commands execution that would otherwise be exe
 | `tar -czf` | (create Zip File) Erstellt ein archiv vom angegebenen Directory Beispiel: echo 'tar -czf /tmp/myhome_directory.tar.gz /home/linuxconfig/' >> backup.sh |
 
 Beispiel:  `echo 'tar -czf /tmp/myhome_directory.tar.gz /home/linuxconfig/' >> backup.sh`
+Probably the best analogy to explain a relative vs. absolute file path is to visualise GNU/Linux filesystem as a multiple storey building. The root directory (building’s entrance door) indicated by / provides the entry to the entire filesystem (building), hence giving access to all directories (levels/rooms) and files (people).
+
 
 ## Variables
 | Befehl | Funktion |
@@ -51,10 +55,7 @@ Beispiel:  `echo 'tar -czf /tmp/myhome_directory.tar.gz /home/linuxconfig/' >> b
 | `[]` | um einen test zu machen |
 | `wc -l` | word count, zählt wie viele linien es gibt | 
 
-
-
-
-Probably the best analogy to explain a relative vs. absolute file path is to visualise GNU/Linux filesystem as a multiple storey building. The root directory (building’s entrance door) indicated by / provides the entry to the entire filesystem (building), hence giving access to all directories (levels/rooms) and files (people).
+![Informationskanäle](https://github.com/lauradubach/Modul-IaC/blob/18f7417363d2bf0f90a92d9a6af116e9ce38e35c/Informationskan%C3%A4le.png)
 
 ## Numeric and String
 
