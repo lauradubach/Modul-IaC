@@ -11,17 +11,25 @@ Shell is a macro processor which allows for an interactive or non-interactive co
 Scripting allows for an automatic commands execution that would otherwise be executed interactively one-by-one.
 
 ## Basics
-
 | Befehl | Funktion |
 | ---- | ---- |
 | `echo $SHELL` | Mit welchem sprach interpreter man arbeitet |
 | `echo` | schreiben |
-| `cat` | Inhalt von einem File wird angezeigt |
 | `man` beliebiger Befehl (zb:`$man ls`) | Zeigt das manual vom Befehl an |
 | `>` | estellen oder überschreiben |
 | `>>` | erstellen oder hinzufügen |
 | `basename $0` | nimmt den Pfad weg und gibt nur den namen des Files aus |
 | `$*` | gibt aus was in der variabel steht (eigentlich wie echo) |
+
+
+## Tools
+| Befehl | Funktion |
+| ---- | ---- |
+| `cat` | File lesen und Ausgeben |
+| `head/tail` | nur die ersten oder letzten x Zeilen von File ausgeben |
+| `sort` | File sortieren nach verschiedenen Kriterien | 
+| `grep` | File filtern nach pattern | 
+| `cut` | Einzelne “Spalten” aus File rauslesen |
 
 
 ## File names and permissions
