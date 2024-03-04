@@ -23,7 +23,7 @@
 | `$multipass launch --cloud-init ./.cloud-init/yaml.yml -n test1` | Cloud Init yaml File mitgeben |
 | `$multipass ls` | IP auslesen |
 | `$ssh "user"@ip Adresse` | ssh testen |
-| `$cloud-init status` | muss done |
+| `$cloud-init status` | status abrufen |
 | `$sudo less /var/log/cloud-init.log` | log file anschauen |
 
 ## Weitere Infos

@@ -20,6 +20,7 @@ Scripting allows for an automatic commands execution that would otherwise be exe
 | `man` beliebiger Befehl (zb:`$man ls`) | Zeigt das manual vom Befehl an |
 | `>` | estellen oder überschreiben |
 | `>>` | erstellen oder hinzufügen |
+| `basename $0` | nimmt den Pfad weg und gibt nur den namen des Files aus |
 
 ## File names and permissions
 | Befehl | Funktion |
@@ -45,9 +46,12 @@ Beispiel:  `echo 'tar -czf /tmp/myhome_directory.tar.gz /home/linuxconfig/' >> b
 | `>` stdout | Output File |
 | `2>` stderr | Error File |
 | `&>` both stdout & stderr | Beide Files |
+| `>/dev/null` | etwas unterdrücken, es passiert nichts |
 | `<` stdin | Input File ZB: cat < test.sh / gibt aus was im test.sh steht |
 | `[]` | um einen test zu machen |
 | `wc -l` | word count, zählt wie viele linien es gibt | 
+
+
 
 
 Probably the best analogy to explain a relative vs. absolute file path is to visualise GNU/Linux filesystem as a multiple storey building. The root directory (building’s entrance door) indicated by / provides the entry to the entire filesystem (building), hence giving access to all directories (levels/rooms) and files (people).
@@ -105,3 +109,5 @@ done
 2. expr-Befehl: Eine weitere Methode ist die Verwendung des expr-Befehls, der arithmetische Operationen ohne Klammern oder Anführungszeichen ermöglicht. Das Multiplikationszeichen muss jedoch zur Vermeidung von Syntaxfehlern maskiert werden.
 3. let-Befehl: Ähnlich wie expr bewertet der let-Befehl mathematische Ausdrücke und speichert das Ergebnis in einer Variable. Er unterstützt auch Inkrement- und Exponentenoperationen.
 4. bc-Befehl: Für Dezimalberechnungen wird der bc-Befehl verwendet. Er ermöglicht komplexere Operationen und die Kontrolle über die Genauigkeit. Beispiele sind Division, Quadratwurzel und das Festlegen der Genauigkeit mit dem scale-Parameter.
+
+
