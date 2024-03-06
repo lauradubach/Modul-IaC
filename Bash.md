@@ -142,8 +142,11 @@ done
 
 ## Definition Wildcards
 
-Wildcards sind spezielle Zeichen oder Zeichenfolgen, die in Suchmustern oder regulären Ausdrücken verwendet werden, um flexiblere Suchkriterien festzulegen. Sie ermöglichen es, Teile eines Musters zu ersetzen oder auf beliebige Zeichen zuzugreifen. Wildcards werden häufig beim Durchsuchen von Texten, Dateien und Verzeichnissen sowie beim Schreiben von Skripten oder Programmen verwendet.$
-
+## Definition Wildcards
+ 
+Wildcards sind spezielle Zeichen oder Zeichenfolgen, die in Suchmustern verwendet werden, um flexiblere Suchkriterien festzulegen. Sie ermöglichen es, Teile eines Musters zu ersetzen oder auf beliebige Zeichen zuzugreifen. Wildcards werden häufig beim Durchsuchen von Texten, Dateien und Verzeichnissen sowie beim Schreiben von Skripten oder Programmen verwendet.
+In Bash gibt es Wildcards um Files und Directories zu "suchen". Diese sind hier beschrieben. Sie sind komplett verschieden von Wildcards in [regulären Ausdrücken](regular_expression.md).
+ 
 | Wildcard | Description | Example Usage |
 | ---- | ---- |
 | `*` (asterisk) | Matches any sequence of characters (including none). | `ls *.txt` |
@@ -151,3 +154,30 @@ Wildcards sind spezielle Zeichen oder Zeichenfolgen, die in Suchmustern oder reg
 | `[ ]` | Matches any character within the brackets. | `ls file[123].txt` |
 | `[ - ]` | Matches any character within the specified range. | `ls file[1-3].txt` |
 | `{ }` | Matches any of the comma-separated patterns inside. | `mv file{1,2}.txt directory/` |
+
+## Sed
+1. Was ist Sed?
+Sed steht für Stream Editor und ermöglicht das Bearbeiten von Texten aus der Befehlszeile.
+
+2. Grundfunktionen
+Sed bearbeitet Texte zeilenweise und auf nicht-interaktive Weise. Alle Bearbeitungsentscheidungen werden beim Aufrufen des Befehls getroffen, und Sed führt die Anweisungen automatisch aus.
+
+3. Verwendung
+Sed ist besonders nützlich für das schnelle und effektive Transformieren von Texten, insbesondere in Skripten oder automatisierten Workflows.
+
+4. Unterschiedliche Versionen
+Es gibt sowohl eine GNU-Version als auch eine BSD-Version von Sed, die auf verschiedenen Betriebssystemen verwendet werden.
+
+5. Grundlegende Operationen
+Das Tutorial sollte grundlegende Operationen mit Sed abdecken, wie das Drucken von Zeilen, das Löschen von Text, das Ersetzen von Text und das Arbeiten mit Adressbereichen.
+
+6. Beispielanwendungen
+Es sollte Beispiele dafür geben, wie Sed verwendet wird, um verschiedene Textbearbeitungsaufgaben zu erledigen.
+
+7. Fortgeschrittene Funktionen
+Es kann erwähnt werden, dass Sed auch fortgeschrittenere Funktionen bietet, die in einem späteren Artikel behandelt werden können.
+
+8. Vorsichtsmaßnahmen
+Es ist wichtig zu betonen, dass Sed die Originaldatei standardmäßig nicht bearbeitet, es sei denn, der Befehl wird mit der Option "-i" verwendet, die Änderungen direkt in der Datei vornimmt.
+
+Indem diese Punkte in der Dokumentation behandelt werden, erhalten die Leser eine solide Einführung in die Verwendung von Sed und können verschiedene Textbearbeitungsaufgaben effektiv damit erledigen.
