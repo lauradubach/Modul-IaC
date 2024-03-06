@@ -119,4 +119,14 @@ done
 3. let-Befehl: Ähnlich wie expr bewertet der let-Befehl mathematische Ausdrücke und speichert das Ergebnis in einer Variable. Er unterstützt auch Inkrement- und Exponentenoperationen.
 4. bc-Befehl: Für Dezimalberechnungen wird der bc-Befehl verwendet. Er ermöglicht komplexere Operationen und die Kontrolle über die Genauigkeit. Beispiele sind Division, Quadratwurzel und das Festlegen der Genauigkeit mit dem scale-Parameter.
 
+## Klammmern
 
+| Befehl | Funktion |
+| ---- | ---- |
+| `()` | Kommandos als subprozess ausführen |
+| `${}` | Variablen |
+| `[]` | Array $[name(0)], Tests, Wildcards |
+| `$()` | Kommandos ausführen und den Output (stdout) im Skript einfügen |
+| `[[]]` | Tests advanced -> manpage bash anschauen |
+| `` | = $() |
+| `~username` | Pfad von userhome - directory von username |
