@@ -92,25 +92,31 @@ Die Verwendung der -z-Bash-Option in Kombination mit einer bedingten if-Anweisun
 ### For Loop
 #### Die For-Loop durchläuft eine Liste von Elementen und führt für jedes Element einen Befehl aus. Dies wird anhand eines Beispiels demonstriert, das die Anzahl der Zeichen in einer Datei zählt.
 
+```bash
 for i in 1 2 3; do
 echo $i
 done
+```
 
 ### While Loop
 #### Die While-Loop führt einen Befehl aus, solange eine Bedingung wahr ist, wie anhand eines Beispiels gezeigt wird, das Zahlen zählt. Die Until-Schleife ist ähnlich der While-Schleife, führt jedoch solange einen Block Code aus, bis eine Bedingung wahr wird.
 
+```bash
 while [ $counter -lt 3 ]; do
 let counter+=1
 echo $counter
 done
+```
 
 ### Until Loop
 #### Die "until"-Loop in Bash funktioniert gegenteilig zur "while"-Schleife. Sie führt einen Codeblock solange aus, bis eine Bedingung wahr wird. Der Text liefert ein Beispiel, in dem eine Zählvariable verringert wird, bis sie einen bestimmten Schwellenwert erreicht.
 
+```bash
 until [ $counter -lt 3 ]; do
 let counter-=1
 echo $counter
 done
+```
 
 ## Bash-Arithmetik
 
@@ -119,14 +125,29 @@ done
 3. let-Befehl: Ähnlich wie expr bewertet der let-Befehl mathematische Ausdrücke und speichert das Ergebnis in einer Variable. Er unterstützt auch Inkrement- und Exponentenoperationen.
 4. bc-Befehl: Für Dezimalberechnungen wird der bc-Befehl verwendet. Er ermöglicht komplexere Operationen und die Kontrolle über die Genauigkeit. Beispiele sind Division, Quadratwurzel und das Festlegen der Genauigkeit mit dem scale-Parameter.
 
-## Klammmern
-
+## Klammmern 
 | Befehl | Funktion |
 | ---- | ---- |
 | `()` | Kommandos als subprozess ausführen |
 | `${}` | Variablen |
+| `` | das gleiche wie: $() |
 | `[]` | Array $[name(0)], Tests, Wildcards |
 | `$()` | Kommandos ausführen und den Output (stdout) im Skript einfügen |
 | `[[]]` | Tests advanced -> manpage bash anschauen |
-| `` | = $() |
 | `~username` | Pfad von userhome - directory von username |
+| `&` | umleiten von Output, Background prozesse |
+| `{1..4}` | Aufzählungen |
+| `;:` | Trent Kommandos |
+| `$(())` | Aritmetische Ops |
+
+## Definition Wildcards
+
+Wildcards sind spezielle Zeichen oder Zeichenfolgen, die in Suchmustern oder regulären Ausdrücken verwendet werden, um flexiblere Suchkriterien festzulegen. Sie ermöglichen es, Teile eines Musters zu ersetzen oder auf beliebige Zeichen zuzugreifen. Wildcards werden häufig beim Durchsuchen von Texten, Dateien und Verzeichnissen sowie beim Schreiben von Skripten oder Programmen verwendet.$
+
+| Wildcard | Description | Example Usage |
+| ---- | ---- |
+| `*` (asterisk) | Matches any sequence of characters (including none). | `ls *.txt` |
+| `?` (question mark) | Matches any single character. | `ls file?.txt`|
+| `[ ]` | Matches any character within the brackets. | `ls file[123].txt` |
+| `[ - ]` | Matches any character within the specified range. | `ls file[1-3].txt` |
+| `{ }` | Matches any of the comma-separated patterns inside. | `mv file{1,2}.txt directory/` |
