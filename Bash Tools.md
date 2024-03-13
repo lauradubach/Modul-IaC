@@ -50,7 +50,7 @@ Dies sollte in jedem Skript enthalten sein:
 
 ```bash
 cwd=`pwd` #current working directory  
-BINDIR=$(cd `dirname $0`;`pwd`) #BINDIR: the directory where the script is located
+BINDIR=$(cd `dirname $0`;pwd) #BINDIR: the directory where the script is located
 BASENAME=`basename $0` #Set the script name (without path to it)
 TMPDIR=/tmp/$BASENAME.$$ #Set a temporary directory if needed with a ending $$ which is the process-ID of the Skript
 ETCDIR=$BINDIR/../etc #ETCDIR is the config directory of the script, which is normally located one directory up from the script location and then into etc
