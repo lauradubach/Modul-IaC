@@ -119,7 +119,6 @@ done
 ```
 
 ## Bash-Arithmetik
-
 1. Arithmetische Expansion: Diese Methode umfasst das Einklammern mathematischer Ausdrücke in doppelte Klammern. Beispiele sind Addition, Subtraktion, Multiplikation und Division.
 2. expr-Befehl: Eine weitere Methode ist die Verwendung des expr-Befehls, der arithmetische Operationen ohne Klammern oder Anführungszeichen ermöglicht. Das Multiplikationszeichen muss jedoch zur Vermeidung von Syntaxfehlern maskiert werden.
 3. let-Befehl: Ähnlich wie expr bewertet der let-Befehl mathematische Ausdrücke und speichert das Ergebnis in einer Variable. Er unterstützt auch Inkrement- und Exponentenoperationen.
@@ -141,9 +140,6 @@ done
 | `$(())` | Aritmetische Ops |
 
 ## Definition Wildcards
-
-## Definition Wildcards
- 
 Wildcards sind spezielle Zeichen oder Zeichenfolgen, die in Suchmustern verwendet werden, um flexiblere Suchkriterien festzulegen. Sie ermöglichen es, Teile eines Musters zu ersetzen oder auf beliebige Zeichen zuzugreifen. Wildcards werden häufig beim Durchsuchen von Texten, Dateien und Verzeichnissen sowie beim Schreiben von Skripten oder Programmen verwendet.
 In Bash gibt es Wildcards um Files und Directories zu "suchen". Diese sind hier beschrieben. Sie sind komplett verschieden von Wildcards in [regulären Ausdrücken](regular_expression.md).
  
