@@ -16,6 +16,7 @@ Scripting allows for an automatic commands execution that would otherwise be exe
 | `echo $SHELL` | Mit welchem sprach interpreter man arbeitet |
 | `echo` | schreiben |
 | `man` beliebiger Befehl (zb:`$man ls`) | Zeigt das manual vom Befehl an |
+| `set`| Gibt alle befehle an die gesetzt sind |
 | `>` | estellen oder überschreiben |
 | `>>` | erstellen oder hinzufügen |
 | `basename $0` | nimmt den Pfad weg und gibt nur den namen des Files aus |

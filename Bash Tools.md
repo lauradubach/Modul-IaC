@@ -55,3 +55,14 @@ BASENAME=`basename $0` #Set the script name (without path to it)
 TMPDIR=/tmp/$BASENAME.$$ #Set a temporary directory if needed with a ending $$ which is the process-ID of the Skript
 ETCDIR=$BINDIR/../etc #ETCDIR is the config directory of the script, which is normally located one directory up from the script location and then into etc
 ```
+
+## Parameterübergabe
+
+https://chat.openai.com/share/f5758e1c-cf8d-4473-be17-1de9786a8a42
+
+`return` verlässt eine funktion und `exit` das gesammte skript.
+
+## Source
+
+https://chat.openai.com/share/50d9fa4a-5ddc-450f-af97-c506f5700852
+
