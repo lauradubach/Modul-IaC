@@ -88,6 +88,8 @@ sudo chown -R www-data:www-data /var/www/html/wordpress/wp-content/uploads/
 
 #cloud-config
 ```bash
+#cloud-config
+
 # Funktion zum Aktualisieren und Installieren von Paketen
 package_update: true
 packages:
@@ -119,6 +121,32 @@ write_files:
     path: /etc/apache2/sites-available/wordpress.conf
     permissions: "0644"
 
+  - content: |
+            <?php
+            define( 'DB_NAME', 'wordpress' );
+            define( 'DB_USER', 'wordpressuser' );
+            define( 'DB_PASSWORD', 'password' );
+            define( 'DB_HOST', 'localhost' );
+            define( 'DB_CHARSET', 'utf8mb4' );
+            define( 'DB_COLLATE', '' );
+      
+            $table_prefix = 'wp_';
+      
+            define( 'AUTH_KEY', 'mycabbages' );
+            define( 'SECURE_AUTH_KEY', 'mycabbages' );
+            define( 'LOGGED_IN_KEY', 'mycabbages' );
+            define( 'NONCE_KEY', 'mycabbages' );
+            define( 'AUTH_SALT', 'mycabbages' );
+            define( 'SECURE_AUTH_SALT', 'mycabbages' );
+            define( 'LOGGED_IN_SALT', 'mycabbages' );
+            define( 'NONCE_SALT', 'mycabbages' );
+      
+            if ( ! defined( 'ABSPATH' ) ) {
+              define( 'ABSPATH', __DIR__ . '/' );
+            }
+      
+            require_once ABSPATH . 'wp-settings.php';
+    path: /var/www/html/wp-config.php
 
 # Konfiguration für Apache
 runcmd: 
