@@ -58,3 +58,96 @@ Nun muss man dies mounten -> sudo mount /dev/vda /mnt -> cd /mnt  ->  ls
 Nun sehen wir die entsprechenden dateien: meta-data user-data und vendor-data. 
 
 Dieses ISO enthaltet alle Konfigurationsdateien 
+
+## Worpress Server aufsetzten mit Cloud Init
+
+Neue Vm erstellen und erstmal alles von Hand testen.
+
+**Anleitung**
+```bash
+sudo apt update
+sudo apt upgrade
+sudo apt install apache2
+sudo apt install mariadb-server
+sudo apt install php php-mysql
+mysql -u root -p
+CREATE DATABASE wordpress_db;
+CREATE USER 'wp_user'@'localhost' IDENTIFIED BY 'password';
+GRANT ALL ON wordpress_db.* TO 'wp_user'@'localhost' IDENTIFIED BY 'password';
+exit;
+cd /tmp && wget https://wordpress.org/latest.tar.gz
+tar -xvf latest.tar.gz
+sudo cp -R wordpress /var/www/html/
+sudo chown -R www-data:www-data /var/www/html/wordpress/
+sudo chmod -R 755 /var/www/html/wordpress/
+sudo mkdir /var/www/html/wordpress/wp-content/uploads
+sudo chown -R www-data:www-data /var/www/html/wordpress/wp-content/uploads/
+ ```
+
+## Cloud Init File
+
+#cloud-config
+```bash
+# Funktion zum Aktualisieren und Installieren von Paketen
+package_update: true
+packages:
+  - mariadb-server
+  - apache2
+  - php
+  - libapache2-mod-php
+  - php-mysql
+
+# Funktion zum Schreiben von Dateien
+write_files: 
+  - content: |
+              <VirtualHost *:80>
+              ServerAdmin admin@wordpress.com
+              DocumentRoot /var/www/html/
+              ServerName wordpress.com
+              ServerAlias www.wordpress.com
+
+              <Directory /var/www/html/>
+                  Options FollowSymLinks
+                  AllowOverride All
+                  Require all granted
+              </Directory>
+
+              ErrorLog ${APACHE_LOG_DIR}/error.log
+              CustomLog ${APACHE_LOG_DIR}/access.log combined
+              </VirtualHost>
+
+    path: /etc/apache2/sites-available/wordpress.conf
+    permissions: "0644"
+
+
+# Konfiguration für Apache
+runcmd: 
+    - sudo cp wordpress.conf /etc/apache2/sites-available/wordpress.conf
+    - sudo a2ensite wordpress.conf
+    - sudo systemctl reload apache2
+
+# Herunterladen von Wordpress und Konfiguration
+    - wget https://wordpress.org/latest.tar.gz
+    - tar -xzvf latest.tar.gz
+    - sudo cp -r wordpress/* /var/www/html/
+    - sudo chown -R www-data:www-data /var/www/html/
+    - sudo chmod -R 755 /var/www/html/
+
+# Erstellen einer Datenbank und eines Benutzers für Wordpress
+    - sudo mysql -u root -p -e "CREATE DATABASE wordpress;"
+    - sudo mysql -u root -p -e "CREATE USER 'wordpressuser'@'localhost' IDENTIFIED BY 'password';"
+    - sudo mysql -u root -p -e "GRANT ALL PRIVILEGES ON wordpress.* TO 'wordpressuser'@'localhost';"
+    - sudo mysql -u root -p -e "FLUSH PRIVILEGES;"
+```
+
+**Nun im multipass erstellen:**
+`multipass launch --cloud-init ./cloudinit.yml -n wordpress`
+
+**IP Auslesen**
+`multipass shell wordpress`
+`ip a show`
+
+**Im Browser testen**
+172.26.158.165/index.php
+
+
