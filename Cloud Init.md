@@ -149,5 +149,6 @@ runcmd:
 
 **Im Browser testen**
 172.26.158.165/index.php
+![Worpress](https://github.com/lauradubach/Modul-IaC/blob/cc53909c8ea708312bf71f07980af660518f92ef/wordpress.png)
 
 
