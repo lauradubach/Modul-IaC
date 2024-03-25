@@ -179,4 +179,16 @@ runcmd:
 172.26.158.165/index.php
 ![Worpress](https://github.com/lauradubach/Modul-IaC/blob/cc53909c8ea708312bf71f07980af660518f92ef/wordpress.png)
 
+**Man kann hier nun auch noch Base64 Encoding einbauen:**
+Zum Bispiel wie folgt:
 
+```bash
+write_files:
+- encoding: b64
+  content: | 
+  blablabalbalbaab
+```
+
+So kann man das skript Base64-encodieren:
+
+`ado@ubuntu:~$ base64 skript.sh`
