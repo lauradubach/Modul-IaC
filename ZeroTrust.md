@@ -30,7 +30,7 @@ Zuerst im Github in den Settings ein Token erstellen und diesen dann kopieren un
 #!/bin/bash
 
 # Schritt 1: Generiere ein SSH-Schlüsselpaar
-ssh-keygen -t rsa -b 4096 -C "laura.dubach@edu.tbz.ch" -f zerotrust -N ""
+ssh-keygen -t rsa -b 4096 -C "MAIL" -f zerotrust -N ""
 
 # Schritt 2: Extrahiere den öffentlichen SSH-Schlüssel
 public_key=$(cat zerotrust.pub)
@@ -40,7 +40,7 @@ echo '{ "title": "cloudinit", "usage_type": "auth", "expires_at": "'$EXPIRY_TSTA
 echo '"key": "'$(cat zerotrust.pub)'" }' >> /tmp/json
 
 # Schritt 3: Hinzufügen des öffentlichen SSH-Schlüssels per REST-API
-curl -X POST -H "Authorization: Bearer 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" -H "Accept: application/vnd.github+json" --data @/tmp/json https://api.github.com/user/keys
+curl -X POST -H "Authorization: Bearer MEINTOKEN" -H "Accept: application/vnd.github+json" --data @/tmp/json https://api.github.com/user/keys
 
 # Ausgabe für die Benutzer
 echo "SSH key generated and added to your account!"
