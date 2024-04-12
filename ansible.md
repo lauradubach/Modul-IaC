@@ -35,7 +35,7 @@ IP2
 IP3
 ```
 Nun den Private key auf die VM transferieren:
-`multipass transfer /tmp/xyz vmname:`
+`multipass transfer iackey ansible:`
 
 Dann auf der VM die Rechte anpassen
 `chmod 600 filename`
@@ -44,6 +44,13 @@ Nun das ini file ausführen:
 `ansible --private-key ~/iackey -i inventory.ini -m ping myhosts`
 
 Als nächstes müssen wir das 3 mal ausführen, damit es die IP`s übernimmt.
+Um dies zu umgehen kann man wie folgt vorgehen:
+
+```bash
+export ANSIBLE_HOST_KEY_CHECKING=False
+ansible -m ping -i inventory.ini hostgroup
+unset ANSIBLE_HOST_KEY_CHECKING
+```
 
 ## Playbook erstellen
 
