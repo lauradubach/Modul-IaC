@@ -45,6 +45,8 @@ Nun das ini file ausführen:
 
 Als nächstes müssen wir das 3 mal ausführen, damit es die IP`s übernimmt.
 
+## Playbook erstellen
+
 Nun erstellen wir ein Playbook:
 
 Zuerst ein playbook.ini File erstellen mit folgendem Input:
