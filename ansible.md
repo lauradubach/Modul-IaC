@@ -1,3 +1,36 @@
+## Beschreibung Ansible
+
+### Control Node:
+Der Hauptcomputer, von dem aus Ansible gesteuert wird. Kann auf verschiedenen Geräten ausgeführt werden, einschließlich Laptops, Desktops und Servern.
+
+### Managed Nodes:
+Die Ziele, die mit Ansible verwaltet werden sollen, wie Server oder Netzwerkgeräte.
+
+### Inventory:
+Eine Liste von verwalteten Nodes mit spezifischen Informationen wie IP-Adressen und Gruppenzuweisungen.
+
+### Playbooks:
+Dateien in YAML, die Aktionen für Ansible definieren und einfach zu lesen und zu teilen sind.
+
+### Roles:
+Wiederverwendbare Ansible-Inhalte für Plays.
+
+### Tasks:
+Aktionen, die auf verwalteten Hosts ausgeführt werden sollen.
+
+### Handlers:
+Spezielle Aktionen, die nur bei bestimmten Ereignissen ausgeführt werden.
+
+### Modules:
+Code, der auf verwalteten Nodes ausgeführt wird, um bestimmte Aufgaben zu erledigen.
+
+### Plugins:
+Erweiterungen für die Kernfähigkeiten von Ansible.
+
+### Collections:
+Verteilte Ansible-Inhalte, die Playbooks, Rollen, Module und Plugins enthalten können und über Ansible Galaxy installiert werden können.
+
+
 ## Ansible VM erstellen
 
 Yaml File:
