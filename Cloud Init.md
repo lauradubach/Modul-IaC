@@ -6,7 +6,7 @@
 
 | Bash befehl | Beschreibung |
 | ---- | ---- |
-| `$multipass launch` | vm erstellen, restart computer then it works |
+| `$multipass launch --name` | vm erstellen, restart computer then it works |
 | `$multipass list` | nun sehen wir die erstellte VM |
 | `$cat /etc/group` | gruppe auslesen |
 | `$cat /etc/user` | user auslesen | 
